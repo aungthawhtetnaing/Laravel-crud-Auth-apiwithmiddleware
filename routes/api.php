@@ -35,3 +35,4 @@ Route::controller(AuthController::class)->group(function(){
 });
 
 Route::apiResource('products', ProductController::class)->middleware('auth:sanctum');
+

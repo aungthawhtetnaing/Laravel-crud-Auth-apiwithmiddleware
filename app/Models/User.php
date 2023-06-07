@@ -43,9 +43,9 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    // public function phone(){
-    //     return $this->hasMany(Phone::class);
-    // }
+    public function phone(){
+        return $this->hasOne(Phone::class);
+    }
     
     // public function address(){
     //     return $this->hasMany(Phone::class);

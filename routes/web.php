@@ -21,18 +21,26 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-// Route::get('/user', function () {
-//     $user = User::with('phone')->get();
-//     return $user;
-// });
-
-// Route::get('/user', function () {
-//     $user = User::with('role')->get();
-//     return $user;
-// });
-
+//one to one
 Route::get('/user', function () {
+    $user = User::with('phone')->get();
+    return $user;
+});
+
+//one to many
+Route::get('/user1', function () {
+    $user = Phone::with('user')->get();
+    return $user;
+});
+
+//many to many
+Route::get('/user2', function () {
+    $user = User::with('role')->get();
+    return $user;
+});
+
+// hasonethrough
+Route::get('/user3', function () {
     $user = Country::with('post')->get();
     TestingJob::dispatchAfterResponse($user);
     return $user;
